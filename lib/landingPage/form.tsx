@@ -1,30 +1,16 @@
 "use client";
-import React, { FormEvent, useCallback, useState } from "react";
-import { Box, Flex, styled } from "../../styled-system/jsx";
+import React, { useState } from "react";
 import { z } from "zod";
+import { Box, Flex, styled } from "../../styled-system/jsx";
 
-export type MonochromeLandingFormProps = {};
+export type MonochromeLandingFormProps = {
+  hasSubmitted: boolean;
+};
 
-export const MonochromeLandingForm: React.FC<
-  MonochromeLandingFormProps
-> = ({}) => {
-  const [hasSubmitted, setHasSubmitted] = useState(false);
+export const MonochromeLandingForm: React.FC<MonochromeLandingFormProps> = ({
+  hasSubmitted,
+}) => {
   const [email, setEmail] = useState("");
-  const onSubmit = useCallback(async (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-
-    const rawData = event.target;
-    const formData = new FormData(rawData as any);
-
-    const resp = await fetch("/", {
-      method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: new URLSearchParams(formData as any).toString(),
-    });
-    if (resp.status === 200 || 201) {
-      setHasSubmitted(true);
-    }
-  }, []);
 
   const isValidEmail = z.string().email().safeParse(email).success;
 
@@ -43,12 +29,9 @@ export const MonochromeLandingForm: React.FC<
       </Flex>
     );
   }
+
   return (
-    <styled.form
-      data-netlify={true}
-      onSubmit={(event) => onSubmit(event)}
-      name="monochrome_waitlist"
-    >
+    <>
       <input type="hidden" name="form-name" value="monochrome_waitlist" />
       <Flex flexShrink={0} flexDir={"column"} gap={"2"} my={"8"} px="2">
         <styled.label>
@@ -92,6 +75,6 @@ export const MonochromeLandingForm: React.FC<
           Join the Waitlist
         </styled.button>
       </Flex>
-    </styled.form>
+    </>
   );
 };

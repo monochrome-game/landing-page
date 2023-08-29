@@ -54,6 +54,7 @@ export const MonochromeLandingHeader: React.FC<
           {roles[roleIdx % roles.length]}
         </styled.span> */}
         <styled.select
+          name="role"
           w="auto"
           value={role}
           onChange={(e) => setRole(e.target.value)}
