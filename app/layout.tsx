@@ -34,6 +34,7 @@ export default function RootLayout({
       lang="en"
       className={`${barriecito.variable} ${barrio.variable} ${specialElite.variable}`}
     >
+      <link rel="icon" href="/favicon.ico" sizes="any" />
       <styled.body>{children}</styled.body>
     </html>
   );
