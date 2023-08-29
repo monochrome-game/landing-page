@@ -45,7 +45,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({}) => {
         <Flex
           flexShrink={0}
           flexDir={"column"}
-          gap={"8"}
+          gap={"4"}
           py={"2"}
           px={"8"}
           maxW="650px"
@@ -59,12 +59,13 @@ export const LandingPage: React.FC<LandingPageProps> = ({}) => {
             acting in, or solving mysteries, Monochrome has you covered.
           </styled.p>
           <styled.ul
-            listStyle={"inside"}
+            listStyle={"outside"}
             fontFamily={"specialElite"}
             fontSize={"sm"}
+            pl={"4"}
           >
             <styled.li py={"2"}>
-              Piece together mysteries through physical clues, character
+              Piece together stories through physical clues, character
               testimonies, laboratory analyses, and more
             </styled.li>
             <styled.li py={"2"}>

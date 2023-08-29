@@ -9,26 +9,16 @@ const roles = [
   "mysterious figure",
   "cunning thief",
   "mastermind",
+  "crime novelist",
+  "private investigator",
 ];
-const FIVE_SECONDS = 5 * 1000;
 
 export type MonochromeLandingHeaderProps = {};
 
 export const MonochromeLandingHeader: React.FC<
   MonochromeLandingHeaderProps
 > = ({}) => {
-  const [roleIdx, setRoleIdx] = useState(0);
   const [role, setRole] = useState(roles[0]);
-
-  useEffect(() => {
-    const tm = setInterval(() => {
-      setRoleIdx((cur) => cur + 1);
-    }, FIVE_SECONDS);
-
-    return () => {
-      clearTimeout(tm);
-    };
-  }, []);
 
   return (
     <Flex
@@ -50,9 +40,6 @@ export const MonochromeLandingHeader: React.FC<
         mt={"2"}
       >
         <styled.span>Be the </styled.span>
-        {/* <styled.span textDecoration={"underline"}>
-          {roles[roleIdx % roles.length]}
-        </styled.span> */}
         <styled.select
           name="role"
           w="auto"
@@ -61,6 +48,12 @@ export const MonochromeLandingHeader: React.FC<
           bg="gsLightest"
           color="gsDarkest"
           borderRadius={"md"}
+          _focusVisible={{
+            outlineColor: "gsLight",
+            outlineOffset: "0.5",
+            outlineStyle: "dotted",
+            outlineWidth: "medium",
+          }}
         >
           {roles.map((r) => (
             <option key={`r-${r}`} value={r}>

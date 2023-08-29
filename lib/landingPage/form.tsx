@@ -33,7 +33,7 @@ export const MonochromeLandingForm: React.FC<MonochromeLandingFormProps> = ({
   return (
     <>
       <input type="hidden" name="form-name" value="monochrome_waitlist" />
-      <Flex flexShrink={0} flexDir={"column"} gap={"2"} my={"8"} px="2">
+      <Flex flexShrink={0} flexDir={"column"} gap={"4"} my={"8"} px="2">
         <styled.label>
           <Box my={"1"} mx="2px" w="calc(100% - 4px)">
             Interested in seeing what Monochrome can do?
@@ -51,6 +51,12 @@ export const MonochromeLandingForm: React.FC<MonochromeLandingFormProps> = ({
             py={"2"}
             value={email}
             onChange={(e) => setEmail(e.target.value)}
+            _focusVisible={{
+              outlineColor: "gsDarker",
+              outlineOffset: "0.5",
+              outlineStyle: "dotted",
+              outlineWidth: "medium",
+            }}
           ></styled.input>
         </styled.label>
         <styled.button
@@ -63,8 +69,15 @@ export const MonochromeLandingForm: React.FC<MonochromeLandingFormProps> = ({
           fontFamily={"barriecito"}
           fontSize={"lg"}
           type="submit"
+          borderRadius={"md"}
           _hover={{
             bg: "gsDarker",
+          }}
+          _focusVisible={{
+            outlineColor: "gsDarker",
+            outlineOffset: "0.5",
+            outlineStyle: "dotted",
+            outlineWidth: "medium",
           }}
           _disabled={{
             opacity: "0.5",
