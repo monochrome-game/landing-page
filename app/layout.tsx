@@ -21,7 +21,7 @@ const specialElite = Special_Elite({
 
 export const metadata: Metadata = {
   title: "Monochrome",
-  description: "Solve mysteries",
+  description: "Be the detective you've always wanted to be",
 };
 
 export default function RootLayout({
